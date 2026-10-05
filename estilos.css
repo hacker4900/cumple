@@ -1,0 +1,208 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  background: linear-gradient(
+    135deg,
+    #ff758c,
+    #ff7eb3
+  );
+
+  color: white;
+}
+
+
+/* CONTENEDOR */
+
+.contenedor {
+  text-align: center;
+  padding: 30px;
+
+  position: relative;
+  z-index: 2;
+}
+
+
+/* REGALO */
+
+.regalo {
+  font-size: 110px;
+
+  cursor: pointer;
+
+  user-select: none;
+
+  transition:
+    transform 0.3s ease;
+}
+
+.regalo:hover {
+  transform:
+    scale(1.15)
+    rotate(5deg);
+}
+
+
+/* TEXTO INICIAL */
+
+.instruccion {
+  margin-top: 15px;
+
+  font-size: 24px;
+
+  font-weight: bold;
+}
+
+
+/* SORPRESA */
+
+.sorpresa {
+  display: none;
+}
+
+
+/* FOTO */
+
+.foto {
+  width: min(400px, 85vw);
+
+  max-height: 400px;
+
+  object-fit: cover;
+
+  border-radius: 20px;
+
+  margin-bottom: 25px;
+
+  box-shadow:
+    0 15px 40px
+    rgba(0, 0, 0, 0.35);
+
+  animation:
+    aparecerFoto 1s ease forwards;
+}
+
+
+/* MENSAJE */
+
+.mensaje {
+
+  font-size:
+    clamp(40px, 8vw, 90px);
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    4px 4px 0 #ff4081,
+    8px 8px 15px
+    rgba(0, 0, 0, 0.25);
+
+  animation:
+    aparecerMensaje 1s ease forwards;
+}
+
+
+/* CONFETI */
+
+.confeti {
+
+  position: fixed;
+
+  width: 12px;
+  height: 20px;
+
+  top: -30px;
+
+  z-index: 1;
+
+  animation:
+    caer linear forwards;
+}
+
+
+/* ANIMACIONES */
+
+@keyframes aparecerFoto {
+
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
+
+
+@keyframes aparecerMensaje {
+
+  0% {
+    opacity: 0;
+    transform:
+      scale(0.2)
+      rotate(-10deg);
+  }
+
+  70% {
+    transform:
+      scale(1.1)
+      rotate(3deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform:
+      scale(1)
+      rotate(0);
+  }
+
+}
+
+
+@keyframes caer {
+
+  to {
+
+    transform:
+      translateY(110vh)
+      rotate(720deg);
+
+  }
+
+}
+
+
+/* MÓVIL */
+
+@media (max-width: 600px) {
+
+  .regalo {
+    font-size: 80px;
+  }
+
+  .instruccion {
+    font-size: 20px;
+  }
+
+  .mensaje {
+    font-size: 40px;
+  }
+
+}

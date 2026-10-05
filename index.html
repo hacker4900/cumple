@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Una sorpresa 🎁</title>
+
+  <!-- Conectamos el CSS -->
+  <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+  <!-- PANTALLA INICIAL -->
+  <div class="contenedor" id="inicio">
+
+    <div class="regalo" onclick="mostrarSorpresa()">
+      🎁
+    </div>
+
+    <div class="instruccion">
+      PULSA AQUÍ 👀
+    </div>
+
+  </div>
+
+
+  <!-- SORPRESA -->
+  <div class="contenedor sorpresa" id="sorpresa">
+
+    <!-- FOTO -->
+    <img src="/home/hacker/cumple/
+paula.jpg" alt="Foto" class="foto">
+
+    <!-- MENSAJE -->
+    <div class="mensaje">
+      FELIZ CUMPLEAÑOS<br>
+      PAULA MUACKSSS
+    </div>
+
+  </div>
+
+
+  <script>
+
+    function mostrarSorpresa() {
+
+      // Ocultar pantalla inicial
+      document.getElementById("inicio").style.display = "none";
+
+      // Mostrar sorpresa
+      document.getElementById("sorpresa").style.display = "block";
+
+      // Lanzar confeti
+      crearConfeti();
+
+    }
+
+
+    function crearConfeti() {
+
+      const colores = [
+        "#ffeb3b",
+        "#00e5ff",
+        "#ff4081",
+        "#76ff03",
+        "#ffffff",
+        "#ff9800",
+        "#9c27b0"
+      ];
+
+      for (let i = 0; i < 150; i++) {
+
+        const confeti = document.createElement("div");
+
+        confeti.classList.add("confeti");
+
+        confeti.style.left =
+          Math.random() * 100 + "vw";
+
+        confeti.style.backgroundColor =
+          colores[Math.floor(Math.random() * colores.length)];
+
+        confeti.style.animationDuration =
+          (Math.random() * 3 + 2) + "s";
+
+        confeti.style.animationDelay =
+          Math.random() * 1.5 + "s";
+
+        document.body.appendChild(confeti);
+
+        setTimeout(() => {
+          confeti.remove();
+        }, 6000);
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>
